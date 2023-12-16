@@ -11,7 +11,7 @@ class SignUpUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpUserBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_sign_up_user)
+        setContentView(binding.root)
 
         binding.goLoginUserPage.setOnClickListener{
             val intent = Intent(this@SignUpUserActivity,LoginUserActivity :: class.java)
@@ -20,6 +20,8 @@ class SignUpUserActivity : AppCompatActivity() {
 
         binding.button3.setOnClickListener{
             val intent = Intent(this@SignUpUserActivity, LocationActivity :: class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

@@ -51,14 +51,14 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="@font/yeonsung"
         android:text="Sign Up Here"
         android:textColor="@color/startColorgreen"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -70,17 +70,19 @@
         android:background="@drawable/edit_text_bg"
         android:drawableLeft="@drawable/ic_user"
         android:drawablePadding="15dp"
+        android:elevation="2dp"
         android:fontFamily="@font/lato"
         android:hint="Name"
         android:inputType="text"
-        android:elevation="2dp"
         android:paddingLeft="5dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:layout_constraintVertical_bias="0.0" />
+
     <EditText
         android:id="@+id/sign_in_email"
         android:layout_width="330dp"
@@ -209,13 +211,14 @@
         android:id="@+id/go_login_user_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/lato"
         android:text="Already Have An Account?"
         android:textColor="@color/startColorgreen"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
