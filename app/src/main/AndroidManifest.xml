@@ -19,27 +19,20 @@
             android:name=".SignUpUserActivity"
             android:exported="false" />
         <activity
-            android:name=".SidnUpUser"
-            android:exported="false" />
-        <activity
             android:name=".LoginUserActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
