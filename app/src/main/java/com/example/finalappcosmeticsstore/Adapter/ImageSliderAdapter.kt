@@ -44,5 +44,6 @@ class ImageSliderAdapter (
     }
     private val runnable = Runnable {
         imageList.addAll(imageList)
+        notifyDataSetChanged()
     }
 }
