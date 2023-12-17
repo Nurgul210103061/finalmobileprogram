@@ -41,7 +41,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <FrameLayout
+    <fragment
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost = "true"
+        app:navGraph = "@navigation/navigation_fragment"
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"

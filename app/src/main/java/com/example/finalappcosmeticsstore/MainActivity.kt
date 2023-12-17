@@ -2,45 +2,25 @@ package com.example.finalappcosmeticsstore
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.findNavController
 import com.example.finalappcosmeticsstore.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    
-    private lateinit var binding :ActivityMainBinding
+
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        changeFragment(HomeFragment())
-        binding.bottomNavigationView.setOnItemSelectedListener{
-            when(it.itemId){
-                R.id.home -> {
-                    changeFragment(HomeFragment())
-                }
-                R.id.cart ->{
-                    changeFragment(CartFragment())
-                }
-                R.id.search -> {
-                    changeFragment(SearchFragment())
-                }
-                R.id.history -> {
-                    changeFragment(HistoryFragment())
-                }
-                R.id.profile -> {
-                    changeFragment(ProfileFragment())
-                }
-            }
+        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navigationView = findNavController(R.id.fragment_container)
 
-            return@setOnItemSelectedListener true
-        }
-    }
-    fun changeFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, fragment)
-        fragmentTransaction.commit()
+        bottomNavView.setupWithNavController(navigationView)
     }
 }
 
