@@ -40,6 +40,7 @@ class MenuBottomSheerFragment : BottomSheetDialogFragment() {
         menuList.add(PopularModel(R.drawable.recycrelimage9,"Hand Cream","3460tg"))
         menuList.add(PopularModel(R.drawable.recycrelimage10,"Peeling Gel","2179tg"))
         adapter = PopularAdapter(requireContext(),menuList)
+
         menuRV = view.findViewById(R.id.menu_RV)
         menuRV.layoutManager = LinearLayoutManager(requireContext())
         menuRV.adapter = adapter

@@ -1,9 +1,11 @@
 package com.example.finalappcosmeticsstore.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finalappcosmeticsstore.DetailsActivity
 import com.example.finalappcosmeticsstore.Models.PopularModel
 import com.example.finalappcosmeticsstore.databinding.HomeCatalogItemBinding
 
@@ -25,8 +27,14 @@ class PopularAdapter(
         val listModel = list[position]
 
           holder.catalogName.text = listModel.getCatalogName()
-          holder.catalogPrice.text = listModel.getCatalogPrice()
+          holder.catalogPrice.text =listModel.getCatalogPrice()
           listModel.getCatalogImage()?.let {holder.catalogImage.setImageResource(it)}
+            holder.item.setOnClickListener{
+                val intent = Intent(context, DetailsActivity :: class.java)
+                intent.putExtra("FoodImage", listModel.getCatalogImage())
+                intent.putExtra("FoodName", listModel.getCatalogName())
+                context.startActivity(intent)
+            }
     }
 
     override fun getItemCount(): Int {
@@ -38,6 +46,7 @@ class PopularAdapter(
         val catalogImage = binding.homeCatalogImage
         val catalogName = binding.homeCatalogName
         val catalogPrice = binding.homeCatalogPrice
+        val item = binding.root
 
     }
 }
