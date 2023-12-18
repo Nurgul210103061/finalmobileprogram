@@ -44,6 +44,7 @@ class MenuBottomSheerFragment : BottomSheetDialogFragment() {
         menuRV = view.findViewById(R.id.menu_RV)
         menuRV.layoutManager = LinearLayoutManager(requireContext())
         menuRV.adapter = adapter
+
         return view
     }
 

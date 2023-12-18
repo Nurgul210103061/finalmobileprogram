@@ -47,6 +47,7 @@ class HomeFragment : Fragment() {
         goMenuText.setOnClickListener{
             val bottomSheetMenu = MenuBottomSheerFragment()
             bottomSheetMenu.show(parentFragmentManager, "Test")
+
         }
 
         listPopular = ArrayList()
