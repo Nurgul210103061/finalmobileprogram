@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.finalappcosmeticsstore.Adapter.ImageSliderAdapter
 import com.example.finalappcosmeticsstore.Adapter.PopularAdapter
 import com.example.finalappcosmeticsstore.Models.PopularModel
+import kotlin.math.abs
 
 
 class HomeFragment : Fragment() {
@@ -26,12 +27,12 @@ class HomeFragment : Fragment() {
 
     private lateinit var popularAdapter: PopularAdapter
     private lateinit var listPopular : ArrayList<PopularModel>
-    private lateinit var homeRV :RecyclerView
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var homeRv :RecyclerView
+
+
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,7 +41,7 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         viewPager2 = view.findViewById(R.id.imageSlider)
 
-        homeRV = view.findViewById(R.id.home_RV)
+        homeRv = view.findViewById(R.id.home_RV)
 
         listPopular = ArrayList()
         listPopular.add(PopularModel(R.drawable.recycrelimage1,"Aloe Vera","2179tg"))
@@ -56,8 +57,8 @@ class HomeFragment : Fragment() {
 
         popularAdapter = PopularAdapter(requireContext(),listPopular)
 
-        homeRV.layoutManager = LinearLayoutManager(requireContext())
-        homeRV.adapter = popularAdapter
+        homeRv.layoutManager = LinearLayoutManager(requireContext())
+        homeRv.adapter = popularAdapter
 
         return view
     }
@@ -84,7 +85,7 @@ class HomeFragment : Fragment() {
         val transformer = CompositePageTransformer()
         transformer.addTransformer(MarginPageTransformer(10))
         transformer.addTransformer{page, position ->
-            val r = 1 - Math.abs(position)
+            val r = 1 - abs(position)
             page.scaleY = 0.85f + r * 0.14f
         }
 
