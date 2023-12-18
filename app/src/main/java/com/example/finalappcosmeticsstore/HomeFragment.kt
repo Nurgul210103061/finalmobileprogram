@@ -7,11 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.finalappcosmeticsstore.Adapter.ImageSliderAdapter
+import com.example.finalappcosmeticsstore.Adapter.PopularAdapter
+import com.example.finalappcosmeticsstore.Models.PopularModel
 
 
 class HomeFragment : Fragment() {
@@ -20,6 +23,10 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: ImageSliderAdapter
     private lateinit var imageList: ArrayList<Int>
     private lateinit var handler: Handler
+
+    private lateinit var popularAdapter: PopularAdapter
+    private lateinit var listPopular : ArrayList<PopularModel>
+    private lateinit var homeRV :RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,6 +39,26 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         viewPager2 = view.findViewById(R.id.imageSlider)
+
+        homeRV = view.findViewById(R.id.home_RV)
+
+        listPopular = ArrayList()
+        listPopular.add(PopularModel(R.drawable.recycrelimage1,"Aloe Vera","2179tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage2,"Beauty of Joseon Relief Sun","12000tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage3,"Collagen ","3590tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage4,"Doctor Cr.","7610tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage5,"BH serum","8500tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage6,"Baking Powder","4300tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage7,"Zero","5500tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage8,"Joseon Relief Sun serum","2179tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage9,"Hand Cream","3460tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage10,"Peeling Gel","2179tg"))
+
+        popularAdapter = PopularAdapter(requireContext(),listPopular)
+
+        homeRV.layoutManager = LinearLayoutManager(requireContext())
+        homeRV.adapter = popularAdapter
+
         return view
     }
 
