@@ -29,10 +29,11 @@ class PopularAdapter(
           holder.catalogName.text = listModel.getCatalogName()
           holder.catalogPrice.text =listModel.getCatalogPrice()
           listModel.getCatalogImage()?.let {holder.catalogImage.setImageResource(it)}
+
             holder.item.setOnClickListener{
                 val intent = Intent(context, DetailsActivity :: class.java)
-                intent.putExtra("FoodImage", listModel.getCatalogImage())
-                intent.putExtra("FoodName", listModel.getCatalogName())
+                intent.putExtra("catalogImage", listModel.getCatalogImage())
+                intent.putExtra("catalogName", listModel.getCatalogName())
                 context.startActivity(intent)
             }
     }

@@ -18,6 +18,8 @@
         <activity
             android:name=".SignUpUserActivity"
             android:exported="false" />
+        <activity android:name=".DetailsActivity"
+            android:exported="false"/>
         <activity
             android:name=".LoginUserActivity"
             android:exported="false" />

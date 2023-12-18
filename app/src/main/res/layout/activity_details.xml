@@ -69,14 +69,14 @@
         android:id="@+id/short_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/yeonsung"
         android:text="Purified water, butylene glycol, glycerin, niacinamide, 1,2-hexanediol, glyceryl glucoside,gtic fluorophlogopite, glucose, titanium dioxide, low sweet blueberry extract, propanedi All, Spinach Extract, Walnut Extract, Garlic Extract, Oat Flour Extract, Wine Extract, Green Tea Extract, Porphyridium Cruentum Extract, Tomato Fruit/Leaf/Stem Extract"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintHorizontal_bias="0.317"
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -90,4 +90,20 @@
         app:layout_constraintStart_toStartOf="@+id/short_desc"
         app:layout_constraintTop_toBottomOf="@+id/short_desc"
         />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="230dp"
+        android:text="Add To Cart"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/yeonsung"
+        android:textColor="@color/white"
+        android:background="@color/endColorgreen"
+        android:layout_height="60dp"
+        android:elevation="4dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 </androidx.constraintlayout.widget.ConstraintLayout>
