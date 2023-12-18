@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -27,6 +28,7 @@ class HomeFragment : Fragment() {
     private lateinit var popularAdapter: PopularAdapter
     private lateinit var listPopular : ArrayList<PopularModel>
     private lateinit var homeRV :RecyclerView
+    private lateinit var goMenuText : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,6 +43,11 @@ class HomeFragment : Fragment() {
         viewPager2 = view.findViewById(R.id.imageSlider)
 
         homeRV = view.findViewById(R.id.home_RV)
+        goMenuText = view.findViewById(R.id.go_menu)
+        goMenuText.setOnClickListener{
+            val bottomSheetMenu = MenuBottomSheerFragment()
+            bottomSheetMenu.show(parentFragmentManager, "Test")
+        }
 
         listPopular = ArrayList()
         listPopular.add(PopularModel(R.drawable.recycrelimage1,"Aloe Vera","2179tg"))
@@ -58,6 +65,7 @@ class HomeFragment : Fragment() {
 
         homeRV.layoutManager = LinearLayoutManager(requireContext())
         homeRV.adapter = popularAdapter
+
 
         return view
     }
