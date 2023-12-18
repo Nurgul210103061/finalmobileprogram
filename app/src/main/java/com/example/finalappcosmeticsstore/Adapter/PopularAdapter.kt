@@ -11,7 +11,7 @@ import com.example.finalappcosmeticsstore.databinding.HomeCatalogItemBinding
 
 class PopularAdapter(
     val context : Context,
-    val list : ArrayList<PopularModel>
+    var list : ArrayList<PopularModel>
 ) : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -49,5 +49,10 @@ class PopularAdapter(
         val catalogPrice = binding.homeCatalogPrice
         val item = binding.root
 
+    }
+
+    fun updateList(newList : ArrayList<PopularModel>){
+        list = newList
+        notifyDataSetChanged()
     }
 }
