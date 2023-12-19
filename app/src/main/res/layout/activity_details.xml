@@ -48,9 +48,10 @@
         android:layout_width="330dp"
         android:layout_height="220dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/slaider3"
+        android:src="@drawable/logo"
         tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="109dp" />
+        tools:layout_editor_absoluteY="109dp"
+        tools:ignore="MissingConstraints" />
 
 
     <TextView
@@ -92,7 +93,7 @@
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="230dp"
+        android:layout_width="match_parent"
         android:text="Add To Cart"
         android:textAllCaps="false"
         android:textSize="24sp"
@@ -103,6 +104,8 @@
         android:layout_height="60dp"
         android:elevation="4dp"
         android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
