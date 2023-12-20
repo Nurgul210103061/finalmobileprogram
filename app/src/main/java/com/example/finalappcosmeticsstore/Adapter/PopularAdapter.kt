@@ -4,15 +4,23 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalappcosmeticsstore.DetailsActivity
 import com.example.finalappcosmeticsstore.Models.PopularModel
+import com.example.finalappcosmeticsstore.Models.SharedModel
 import com.example.finalappcosmeticsstore.databinding.HomeCatalogItemBinding
 
 class PopularAdapter(
     val context : Context,
     var list : ArrayList<PopularModel>
 ) : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() {
+
+    private lateinit var sharedModel : SharedModel
+
+    fun setSharedModel(viewModel: SharedModel){
+        sharedModel = viewModel
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -36,6 +44,16 @@ class PopularAdapter(
                 intent.putExtra("catalogName", listModel.getCatalogName())
                 context.startActivity(intent)
             }
+        holder.addBtn.setOnClickListener{
+            if (sharedModel.inList(listModel)){
+                sharedModel.deleteFromCart(listModel)
+                holder.addBtn.setText("Add To Cart")
+            }else{
+                   sharedModel.addToCart(listModel)
+                   holder.addBtn.setText("Delete")
+
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -47,6 +65,7 @@ class PopularAdapter(
         val catalogImage = binding.homeCatalogImage
         val catalogName = binding.homeCatalogName
         val catalogPrice = binding.homeCatalogPrice
+        val addBtn = binding.homeCatalogBtn
         val item = binding.root
 
     }

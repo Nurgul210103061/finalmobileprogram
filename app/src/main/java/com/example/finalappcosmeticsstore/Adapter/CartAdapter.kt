@@ -14,10 +14,7 @@ class CartAdapter(
     val list : ArrayList<PopularModel>
 ) : RecyclerView.Adapter<CartViewHolder>() {
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): CartViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val binding = CartAddItemBinding.inflate(LayoutInflater.from(context),parent,false)
         return CartViewHolder(binding)
     }
@@ -29,6 +26,30 @@ class CartAdapter(
         holder.catalogName.text = listModel.getCatalogName()
         holder.catalogPrice.text = listModel.getCatalogPrice()
         listModel.getCatalogImage()?.let { holder.catalogImage.setImageResource(it) }
+
+        holder.plus.setOnClickListener{
+            if (listModel.getCatalogCount() < 10){
+                val count = listModel.getCatalogCount() + 1
+                listModel.setCatalogCount(count)
+                holder.catalogCount.text = listModel.getCatalogCount().toString()
+            }
+        }
+
+        holder.minus.setOnClickListener{
+            if (listModel.getCatalogCount() > 1) {
+                val count = listModel.getCatalogCount() - 1
+                listModel.setCatalogCount(count)
+                holder.catalogCount.text = listModel.getCatalogCount().toString()
+            }
+            else{
+                holder.bindItem()
+            }
+
+            }
+        holder.deleteBtn.setOnClickListener{
+            holder.bindItem()
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -37,12 +58,27 @@ class CartAdapter(
 
     inner class CartViewHolder(binding:CartAddItemBinding):
             RecyclerView.ViewHolder(binding.root){
+
             val catalogImage = binding.homeCatalogImage
             val catalogName = binding.homeCatalogName
             val catalogPrice = binding.homeCatalogPrice
+            val catalogCount = binding.catalogCount
 
             val plus = binding.plusBtn
             val minus = binding.minusBtn
+            val deleteBtn = binding.deleteBtn
 
+            fun bindItem(){
+                if (adapterPosition != RecyclerView.NO_POSITION){
+                    deleteItem(adapterPosition)
+                }
             }
+            }
+    fun deleteItem(position: Int){
+        if (position in 0..list.size){
+            list.removeAt(position)
+            notifyDataSetChanged()
+            notifyItemRangeChanged(position, list.size)
+        }
+    }
 }

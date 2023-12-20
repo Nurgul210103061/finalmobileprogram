@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -16,6 +17,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.finalappcosmeticsstore.Adapter.ImageSliderAdapter
 import com.example.finalappcosmeticsstore.Adapter.PopularAdapter
 import com.example.finalappcosmeticsstore.Models.PopularModel
+import com.example.finalappcosmeticsstore.Models.SharedModel
 import kotlin.math.abs
 
 
@@ -31,6 +33,8 @@ class HomeFragment : Fragment() {
     private lateinit var homeRv :RecyclerView
     private lateinit var goMenuText : TextView
 
+    private lateinit var sharedModel: SharedModel
+
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
     }
@@ -42,6 +46,7 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         viewPager2 = view.findViewById(R.id.imageSlider)
 
+        sharedModel = ViewModelProvider(requireActivity()).get(SharedModel :: class.java)
         homeRv = view.findViewById(R.id.home_RV)
         goMenuText = view.findViewById(R.id.go_menu)
         goMenuText.setOnClickListener{
@@ -51,18 +56,19 @@ class HomeFragment : Fragment() {
         }
 
         listPopular = ArrayList()
-        listPopular.add(PopularModel(R.drawable.recycrelimage1,"Aloe Vera","2179tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage2,"Beauty of Joseon Relief Sun","12000tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage3,"Collagen ","3590tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage4,"Doctor Cr.","7610tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage5,"BH serum","8500tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage6,"Baking Powder","4300tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage7,"Zero","5500tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage8,"Joseon Relief Sun serum","2179tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage9,"Hand Cream","3460tg"))
-        listPopular.add(PopularModel(R.drawable.recycrelimage10,"Peeling Gel","2179tg"))
+        listPopular.add(PopularModel(R.drawable.recycrelimage1,"Aloe Vera","2179tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage2,"Beauty of Joseon Relief Sun","12000tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage3,"Collagen ","3590tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage4,"Doctor Cr.","7610tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage5,"BH serum","8500tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage6,"Baking Powder","4300tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage7,"Zero","5500tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage8,"Joseon Relief Sun serum","2179tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage9,"Hand Cream","3460tg",1))
+        listPopular.add(PopularModel(R.drawable.recycrelimage10,"Peeling Gel","2179tg",1))
 
         popularAdapter = PopularAdapter(requireContext(),listPopular)
+        popularAdapter.setSharedModel(sharedModel)
 
         homeRv.layoutManager = LinearLayoutManager(requireContext())
         homeRv.adapter = popularAdapter
