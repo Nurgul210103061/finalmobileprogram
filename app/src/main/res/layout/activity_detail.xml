@@ -240,4 +240,23 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/place_my_order"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Place my order"
+        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:outlineSpotShadowColor="@color/startColorgreen"
+        android:outlineAmbientShadowColor="@color/startColorgreen"
+        android:shadowColor="@color/startColorgreen"
+        android:background="@drawable/text_view_bg"
+        android:textColor="@color/startColorgreen"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p_method" />
 </androidx.constraintlayout.widget.ConstraintLayout>
