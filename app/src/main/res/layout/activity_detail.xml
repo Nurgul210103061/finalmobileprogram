@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
-            android:text="aisulu"
+            android:text="Your name"
             android:layout_marginStart="8dp"
             android:background="@color/white"
             android:textStyle="bold"
@@ -99,7 +99,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"/>
         <EditText
-            android:text="Lorem hhunjnjnhbhvftfcfcdrdr bgvgbgb gvgvgbg gvbbjnj gvghnj vgvhnj vgbjnj ghnjnhvfx fcgbjnjn"
+            android:text="Your Adress"
             android:layout_marginStart="8dp"
             android:background="@color/white"
             android:textStyle="bold"
@@ -208,7 +208,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_l"
+        app:layout_constraintTop_toBottomOf="@+id/p_method"
         app:layout_constraintVertical_bias="0.0" >
 
         <TextView
@@ -226,6 +226,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="64dp"

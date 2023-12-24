@@ -24,13 +24,17 @@ class CartAdapter(
         val listModel = list[position]
 
         holder.catalogName.text = listModel.getCatalogName()
-        holder.catalogPrice.text = listModel.getCatalogPrice()
+        holder.catalogPrice.text = listModel.getCatalogPrice().toString()
         listModel.getCatalogImage()?.let { holder.catalogImage.setImageResource(it) }
+        holder.catalogCount.text = listModel.getCatalogCount().toString()
 
         holder.plus.setOnClickListener{
             if (listModel.getCatalogCount() < 10){
                 val count = listModel.getCatalogCount() + 1
                 listModel.setCatalogCount(count)
+                val price = listModel.getCatalogPriceConstant() * listModel.getCatalogCount()
+                listModel.setCatalogPrice(price)
+                holder.catalogPrice.text=listModel.getCatalogPrice().toString()
                 holder.catalogCount.text = listModel.getCatalogCount().toString()
             }
         }
@@ -39,6 +43,9 @@ class CartAdapter(
             if (listModel.getCatalogCount() > 1) {
                 val count = listModel.getCatalogCount() - 1
                 listModel.setCatalogCount(count)
+                val price = listModel.getCatalogPriceConstant() * listModel.getCatalogCount()
+                listModel.setCatalogPrice(price)
+                holder.catalogPrice.text=listModel.getCatalogPrice().toString()
                 holder.catalogCount.text = listModel.getCatalogCount().toString()
             }
             else{

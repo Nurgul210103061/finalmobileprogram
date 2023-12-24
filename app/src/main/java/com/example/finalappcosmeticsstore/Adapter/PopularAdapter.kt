@@ -35,7 +35,7 @@ class PopularAdapter(
         val listModel = list[position]
 
           holder.catalogName.text = listModel.getCatalogName()
-          holder.catalogPrice.text =listModel.getCatalogPrice()
+          holder.catalogPrice.text =listModel.getCatalogPrice().toString()
           listModel.getCatalogImage()?.let {holder.catalogImage.setImageResource(it)}
 
             holder.item.setOnClickListener{

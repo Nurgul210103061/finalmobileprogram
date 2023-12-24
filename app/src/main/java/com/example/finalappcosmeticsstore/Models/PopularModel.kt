@@ -5,16 +5,25 @@ import android.media.Image
 class PopularModel{
     private var catalogImage :Int? = null
     private var catalogName : String = ""
-    private var catalogPrice : String = ""
+    private var catalogPrice : Int = 0
+    private var catalogPriceConstant : Int = 0
     private var catalogCount : Int = 1
 
     constructor()
-    constructor(catalogImage: Int?, catalogName: String, catalogPrice : String, catalogCount : Int) {
+    constructor(catalogImage: Int?, catalogName: String, catalogPrice : Int,catalogPriceConstant : Int, catalogCount : Int) {
         this.catalogImage = catalogImage
         this.catalogName = catalogName
         this.catalogPrice = catalogPrice
         this.catalogCount = catalogCount
+        this.catalogPriceConstant=catalogPriceConstant
     }
+    fun getCatalogPriceConstant(): Int{
+        return catalogPriceConstant
+    }
+    fun setCatalogPriceConstant(catalogPriceConstant: Int) {
+        this.catalogPriceConstant=catalogPriceConstant
+    }
+
 
     fun getCatalogCount() : Int {
         return catalogCount
@@ -29,7 +38,7 @@ class PopularModel{
      fun getCatalogName() : String{
         return catalogName
     }
-     fun getCatalogPrice(): String{
+     fun getCatalogPrice(): Int{
         return catalogPrice
     }
 
@@ -40,7 +49,7 @@ class PopularModel{
         this.catalogName = catalogName
     }
 
-     fun setCatalogPrice(catalogPrice: String) {
+     fun setCatalogPrice(catalogPrice: Int) {
         this.catalogPrice = catalogPrice
     }
 }
